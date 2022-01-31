@@ -2,11 +2,13 @@
 body {
   overflow: hidden;
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto 1fr auto;
   grid-template-columns: 1fr;
   grid-template-areas:
     'Header'
-    'Main';
+    'Main'
+    'Footer';
+  height: 100vh;
 }
 
 header {
@@ -16,5 +18,8 @@ header {
 main {
   grid-area: Main;
   overflow: auto;
-  height: 100vh;
+}
+
+footer {
+  grid-area: Footer;
 }

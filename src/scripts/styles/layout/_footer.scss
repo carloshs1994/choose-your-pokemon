@@ -1,1 +1,11 @@
 // footer
+footer {
+  border: 1px solid black;
+  padding: 3rem;
+
+  p,
+  a {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 2rem;
+  }
+}

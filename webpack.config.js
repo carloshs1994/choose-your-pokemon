@@ -22,14 +22,17 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     clean: true,
 
-    // Tweak this to match your GitHub project name
-    publicPath: '/webpackTemplate/',
+    publicPath: '/choose-your-pokemon/',
   },
   module: {
     rules: [
       {
         test: /\.s[ac]ss$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
       },
     ],
   },

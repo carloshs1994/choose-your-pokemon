@@ -1,6 +1,9 @@
-import { getPokemons } from './APIhandling.js';
+import getPokemons from './APIhandling.js';
+import Heart from '../../assets/icons/heart.svg';
 
-const displayPokemons = async () => {
+// Display Home page
+export default async () => {
+  // Array of pokemons
   const pokemons = await getPokemons();
   const main = document.querySelector('main');
   const cardsContainer = document.createElement('ul');
@@ -17,16 +20,26 @@ const displayPokemons = async () => {
 
     const image = new Image();
     image.src = pokemon.sprites.other.dream_world.front_default;
+    image.classList.add('pokemon');
     card.appendChild(image);
 
+    const info = document.createElement('div');
+    info.classList.add('info');
     const title = document.createElement('h2');
     title.textContent = name;
-    card.appendChild(title);
+    info.appendChild(title);
+
+    const buttonHeart = document.createElement('button');
+    buttonHeart.classList.add('heart');
+    const heart = new Image();
+    heart.src = Heart;
+    buttonHeart.appendChild(heart);
+    info.appendChild(buttonHeart);
+
+    card.appendChild(info);
 
     const commentsButton = document.createElement('button');
     commentsButton.textContent = 'Comments';
     card.appendChild(commentsButton);
   });
 };
-
-export { displayPokemons };

@@ -1,4 +1,4 @@
-import { displayPokemons } from '../modules/generators.js';
+import displayPokemons from '../modules/generators.js';
 
 jest.mock('../modules/APIhandling');
 

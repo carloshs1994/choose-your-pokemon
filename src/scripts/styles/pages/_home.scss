@@ -8,7 +8,7 @@ main {
 .cardsContainer {
   display: grid;
   padding: 5%;
-  grid-template-columns: repeat( auto-fit, minmax(270px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   gap: 50px;
 }
 
@@ -24,10 +24,20 @@ main {
     text-transform: capitalize;
   }
 
-  img {
-    border: 2px solid black;
-    border-radius: 5%;
-    width: 100%;
-    height: 300px;
+  .info {
+    display: flex;
+    gap: 30px;
+
+    img {
+      width: 32px;
+      height: 32px;
+    }
   }
+}
+
+.pokemon {
+  border: 2px solid black;
+  border-radius: 5%;
+  width: 100%;
+  height: 300px;
 }

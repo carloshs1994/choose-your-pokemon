@@ -31,7 +31,6 @@ export default async () => {
 
     const buttonHeart = document.createElement('button');
     buttonHeart.classList.add('heart');
-    buttonHeart.id = id;
     const heart = new Image();
     heart.src = Heart;
     buttonHeart.appendChild(heart);
@@ -40,6 +39,8 @@ export default async () => {
     card.appendChild(info);
 
     const commentsButton = document.createElement('button');
+    commentsButton.className = 'comments';
+    commentsButton.id = id;
     commentsButton.textContent = 'Comments';
     card.appendChild(commentsButton);
   });

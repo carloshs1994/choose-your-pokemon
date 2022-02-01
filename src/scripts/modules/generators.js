@@ -1,8 +1,8 @@
-import getPokemons from './APIhandling.js';
+import { getPokemons, getLikes } from './APIhandling.js';
 import Heart from '../../assets/icons/heart.svg';
 
 // Display Home page
-export default async () => {
+const displayPokemons = async () => {
   // Array of pokemons
   const pokemons = await getPokemons();
   const main = document.querySelector('main');
@@ -39,8 +39,25 @@ export default async () => {
 
     card.appendChild(info);
 
+    const likes = document.createElement('p');
+    likes.classList.add('likes');
+    likes.textContent = '0 Likes';
+
+    card.appendChild(likes);
+
     const commentsButton = document.createElement('button');
     commentsButton.textContent = 'Comments';
     card.appendChild(commentsButton);
   });
 };
+
+const displayLikes = async () => {
+  const likes = await getLikes();
+  likes.forEach((likeCount) => {
+    const card = document.querySelector(`#${likeCount.item_id}`);
+    const likesElement = card.querySelector('.likes');
+    likesElement.textContent = `${likeCount.likes} Likes`;
+  });
+};
+
+export { displayPokemons, displayLikes };

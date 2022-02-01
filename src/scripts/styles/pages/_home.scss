@@ -24,6 +24,10 @@ main {
     text-transform: capitalize;
   }
 
+  p {
+    align-self: flex-end;
+  }
+
   .info {
     display: flex;
     gap: 30px;

@@ -44,3 +44,8 @@ getPokemonInfo(3).then((json) => {
   pHeight.innerText = `Height: ${height}`;
   pWeight.innerText = `Weight: ${weight}`;
 });
+import displayPokemons from './modules/generators.js';
+
+window.onload = async () => {
+  await displayPokemons();
+};

@@ -39,6 +39,7 @@ export default async () => {
     card.appendChild(info);
 
     const commentsButton = document.createElement('button');
+    commentsButton.className = 'comments';
     commentsButton.id = id;
     commentsButton.textContent = 'Comments';
     card.appendChild(commentsButton);

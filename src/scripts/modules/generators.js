@@ -4,10 +4,12 @@ const displayPokemons = async () => {
   const pokemons = await getPokemons();
   const main = document.querySelector('main');
   const cardsContainer = document.createElement('ul');
+  cardsContainer.classList.add('cardsContainer');
   main.appendChild(cardsContainer);
 
   pokemons.forEach((pokemon) => {
     const card = document.createElement('li');
+    card.classList.add('card');
     const { id, name } = pokemon;
     card.id = id;
 

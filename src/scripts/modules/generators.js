@@ -14,7 +14,7 @@ export default async () => {
     const card = document.createElement('li');
     card.classList.add('card');
     const { id, name } = pokemon;
-    card.id = id;
+    card.id = `pokemon-${id}`;
 
     cardsContainer.appendChild(card);
 
@@ -31,6 +31,7 @@ export default async () => {
 
     const buttonHeart = document.createElement('button');
     buttonHeart.classList.add('heart');
+    buttonHeart.id = id;
     const heart = new Image();
     heart.src = Heart;
     buttonHeart.appendChild(heart);

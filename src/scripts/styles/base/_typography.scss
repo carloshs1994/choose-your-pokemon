@@ -10,8 +10,13 @@ a {
   font-size: 3rem;
 }
 
+input,
+textarea {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+
 strong {
-  font-family: 'Roboto Mono', monospace;
   font-weight: 700;
 }
 

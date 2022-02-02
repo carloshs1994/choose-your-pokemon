@@ -71,11 +71,11 @@ export default () => {
           }
         });
         h2.innerText = `${name} has:`;
-        pBaseExperience.innerText = `Base Experience: ${baseExperience}`;
-        pAbilities.innerText = `Abilities: ${stringWithabilities}`;
-        pHeight.innerText = `Height: ${height}`;
-        pWeight.innerText = `Weight: ${weight}`;
-        pMoves.innerText = `Some moves are: ${stringWithMoves}`;
+        pBaseExperience.innerHTML = `<strong>Base Experience:</strong> ${baseExperience}`;
+        pAbilities.innerHTML = `<strong>Abilities:</strong> ${stringWithabilities}`;
+        pHeight.innerHTML = `<strong>Height:</strong> ${height}`;
+        pWeight.innerHTML = `<strong>Weight:</strong> ${weight}`;
+        pMoves.innerHTML = `<strong>Some moves are:</strong> ${stringWithMoves}`;
         close.addEventListener('click', () => {
           document.querySelector('.popup').classList.remove('show');
           pokemonImgContainer.innerHTML = '';

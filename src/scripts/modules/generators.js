@@ -1,5 +1,7 @@
 import { getPokemons, getLikes, addLike } from './APIhandling.js';
 import itemsCounter from './util.js';
+import Menu from '../../assets/icons/hamburger.svg';
+import Close from '../../assets/icons/close.svg';
 
 const numRegex = /\d+/;
 // Display Home page
@@ -78,4 +80,33 @@ const displayCounters = () => {
   });
 };
 
-export { displayPokemons, displayLikes, displayCounters };
+const addMenu = () => {
+  const menu = document.querySelector('.menu');
+  const menuImage = new Image();
+  menuImage.src = Menu;
+  menuImage.alt = 'Menu Button';
+
+  menu.appendChild(menuImage);
+
+  const close = document.querySelector('.close');
+  const closeImage = new Image();
+  closeImage.src = Close;
+  closeImage.alt = 'Close Button';
+
+  close.appendChild(closeImage);
+
+  const navChild = document.querySelector('.nav-child');
+  menu.addEventListener('click', () => {
+    navChild.setAttribute('data-active', 'true');
+  });
+  close.addEventListener('click', () => {
+    navChild.setAttribute('data-active', 'false');
+  });
+};
+
+export {
+  displayPokemons,
+  displayLikes,
+  displayCounters,
+  addMenu,
+};

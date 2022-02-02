@@ -194,7 +194,6 @@ main {
 .info {
   display: flex;
   gap: 30px;
-
 }
 
 .heart-shape {
@@ -202,17 +201,17 @@ main {
   width: 24px;
   height: 24px;
   background-color: $gray-dark;
-  transform: rotate(45deg); 
+  transform: rotate(45deg);
 
   &-active {
     background-color: $red-light;
   }
 }
 
-.heart-shape:before,
+.heart-shape::before,
 .heart-shape::after,
-.heart-shape-active::before, 
-.heart-shape-active::after{
+.heart-shape-active::before,
+.heart-shape-active::after {
   position: absolute;
   width: 24px;
   height: 24px;
@@ -221,7 +220,7 @@ main {
   background-color: $gray-dark;
 }
 
-.heart-shape:before,
+.heart-shape::before,
 .heart-shape-active::before {
   bottom: 0;
   left: -12px;

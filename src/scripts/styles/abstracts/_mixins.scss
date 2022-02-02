@@ -1,1 +1,3 @@
-// mixins
+@mixin for-small-devices {
+  @media screen and (max-width: 750px) { @content; }
+}

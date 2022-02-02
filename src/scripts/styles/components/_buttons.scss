@@ -4,11 +4,35 @@ button {
   padding: 10px 20px;
 }
 
-.heart {
+.heart,
+.menu,
+.close {
   padding: 0;
   border: none;
 }
 
 button:hover {
   cursor: pointer;
+}
+
+.menu {
+  img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.menuParent {
+  display: none;
+
+  @include for-small-devices {
+    display: block;
+  }
+}
+
+.close {
+  img {
+    width: 24px;
+    height: 24px;
+  }
 }

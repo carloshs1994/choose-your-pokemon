@@ -15,3 +15,21 @@ window.onload = async () => {
   displayCounters();
   addMenu();
 };
+
+const nav = document.querySelector('.nav');
+const main = document.querySelector('main');
+const linkTags = nav.querySelectorAll('a');
+linkTags.forEach((tag) => {
+  const reGex = /#[\w-]+/g;
+  tag.addEventListener('click', async (event) => {
+    const pageId = event.target.href.match(reGex)[0];
+    main.innerHTML = '';
+    if (pageId === '#pokemons') {
+      await displayPokemons();
+      await displayLikes();
+      displayCounters();
+    }
+    const navChild = document.querySelector('.nav-child');
+    navChild.setAttribute('data-active', 'false');
+  });
+});

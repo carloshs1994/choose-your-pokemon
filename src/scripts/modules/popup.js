@@ -7,20 +7,19 @@ const getPokemonInfo = async (id) => {
   return json;
 };
 
-const updateComments = (pokemonId) => {
-  getPokemonComments(pokemonId).then((json) => {
-    document.querySelector('.popup-comments > ul').innerHTML = '';
-    if (json.length !== undefined) {
-      json.forEach((user) => {
-        document.querySelector('.popup-comments > h3').innerText = `Comments (${commentCounter(json.length)})`;
-        const li = document.createElement('li');
-        li.innerText = `${user.creation_date}. ${user.username}: ${user.comment}`;
-        document.querySelector('.popup-comments > ul').appendChild(li);
-      });
-    } else {
+const updateComments = async (pokemonId) => {
+  const json = await getPokemonComments(pokemonId);
+  document.querySelector('.popup-comments > ul').innerHTML = '';
+  if (json.length !== undefined) {
+    json.forEach((user) => {
       document.querySelector('.popup-comments > h3').innerText = `Comments (${commentCounter(json.length)})`;
-    }
-  });
+      const li = document.createElement('li');
+      li.innerText = `${user.creation_date}. ${user.username}: ${user.comment}`;
+      document.querySelector('.popup-comments > ul').appendChild(li);
+    });
+  } else {
+    document.querySelector('.popup-comments > h3').innerText = `Comments (${commentCounter(json.length)})`;
+  }
 };
 
 export default () => {
@@ -88,13 +87,12 @@ export default () => {
       document.querySelector('.popup').classList.add('show');
     });
   });
-  form.addEventListener('submit', (event) => {
+  form.addEventListener('submit', async (event) => {
     const username = document.getElementById('username');
     const comment = document.getElementById('comment');
     event.preventDefault();
-    addPokemonComments(pokemonId, username.value, comment.value).then(() => {
-      updateComments(pokemonId);
-    });
+    await addPokemonComments(pokemonId, username.value, comment.value);
+    await updateComments(pokemonId);
     form.reset();
   });
 };

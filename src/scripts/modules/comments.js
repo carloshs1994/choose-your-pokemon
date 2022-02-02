@@ -1,6 +1,6 @@
 const getPokemonComments = async (pokemonId) => {
-  const getInfo = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/BeZr9XamNVOo33K8TRz4/comments?item_id=${pokemonId}`);
-  const json = await getInfo.json();
+  const json = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/BeZr9XamNVOo33K8TRz4/comments?item_id=${pokemonId}`)
+    .then((response) => response.json());
   return json;
 };
 
@@ -16,7 +16,7 @@ const addPokemonComments = async (pokemonId, username, comment) => {
       'Content-type': 'application/json; charset=UTF-8',
     },
   });
-  const json = await sendInfo.json();
+  const json = await sendInfo.text();
   return json;
 };
 

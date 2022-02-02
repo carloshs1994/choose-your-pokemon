@@ -28,10 +28,11 @@ export default () => {
   const xImg = document.createElement('img');
   const form = document.querySelector('form');
   let pokemonId = '';
+  close.innerHTML = '';
   xImg.src = XButton;
   close.appendChild(xImg);
   buttons.forEach((button) => {
-    button.addEventListener('click', (event) => {
+    button.addEventListener('click', async (event) => {
       const { id } = event.target;
       pokemonId = event.target.parentElement.id;
       getPokemonInfo(id).then((json) => {
@@ -83,7 +84,7 @@ export default () => {
           document.querySelector('.popup-comments > ul').innerHTML = '';
         });
       });
-      updateComments(pokemonId);
+      await updateComments(pokemonId);
       document.querySelector('.popup').classList.add('show');
     });
   });

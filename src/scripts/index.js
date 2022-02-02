@@ -23,10 +23,11 @@ linkTags.forEach((tag) => {
   const reGex = /#[\w-]+/g;
   tag.addEventListener('click', async (event) => {
     const pageId = event.target.href.match(reGex)[0];
-    main.innerHTML = '';
+    main.innerHTML = '<h1> Pick your Favorite Pokemon! </h1>';
     if (pageId === '#pokemons') {
       await displayPokemons();
       await displayLikes();
+      displayPopup();
       displayCounters();
     }
     const navChild = document.querySelector('.nav-child');

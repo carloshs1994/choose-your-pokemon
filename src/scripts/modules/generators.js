@@ -23,6 +23,7 @@ const displayPokemons = async () => {
 
     const image = new Image();
     image.src = pokemon.sprites.other.dream_world.front_default;
+    image.alt = name;
     image.classList.add('pokemon');
     card.appendChild(image);
 

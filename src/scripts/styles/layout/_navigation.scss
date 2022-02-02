@@ -4,6 +4,8 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  background-color: $orange-light;
+  flex-wrap: wrap;
 
   &-parent {
     border: 1px solid black;
@@ -12,5 +14,15 @@
 
   &-child {
     gap: 3rem;
+  }
+
+  a {
+    transition: padding 0.2s ease-in-out;
+  }
+
+  a:hover {
+    display: block;
+    color: $red-medium;
+    padding: 3px;
   }
 }

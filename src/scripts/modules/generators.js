@@ -1,5 +1,4 @@
 import { getPokemons, getLikes, addLike } from './APIhandling.js';
-import Heart from '../../assets/icons/heart.svg';
 import itemsCounter from './util.js';
 
 const numRegex = /\d+/;
@@ -33,8 +32,8 @@ const displayPokemons = async () => {
 
     const buttonHeart = document.createElement('button');
     buttonHeart.classList.add('heart');
-    const heart = new Image();
-    heart.src = Heart;
+    const heart = document.createElement('div');
+    heart.classList.add('heart-shape');
     buttonHeart.appendChild(heart);
     info.appendChild(buttonHeart);
 
@@ -45,9 +44,10 @@ const displayPokemons = async () => {
     likes.textContent = '0 Likes';
 
     buttonHeart.addEventListener('click', async () => {
-      await addLike(`pokemon-${id}`);
+      heart.classList.add('heart-shape-active');
       const numberOflikes = likes.textContent.match(numRegex)[0];
       likes.textContent = `${+numberOflikes + 1} Likes`;
+      await addLike(`pokemon-${id}`);
     }, { once: true });
 
     card.appendChild(likes);

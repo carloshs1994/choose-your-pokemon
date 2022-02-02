@@ -17,23 +17,32 @@ main {
   flex-direction: column;
   align-items: center;
   gap: 30px;
-  border: 1px solid black;
+  border: 5px solid $gray-dark;
   padding: 20px;
+  box-shadow: 10px 10px 5px 5px $red-dark;
+  transition: transform 0.2s ease-in;
 
   h2 {
     text-transform: capitalize;
+    font-weight: 600;
   }
 
   p {
     align-self: flex-end;
+    font-weight: 600;
   }
 }
 
+.card:hover {
+  transform: scale(1.1);
+}
+
 .pokemon {
-  border: 2px solid black;
+  border: 3px solid $gray-dark;
   border-radius: 5%;
   width: 100%;
   height: 300px;
+  padding: 10px;
 }
 
 .popup {
@@ -186,8 +195,45 @@ main {
   display: flex;
   gap: 30px;
 
-  img {
-    width: 32px;
-    height: 32px;
+}
+
+.heart-shape {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  background-color: $gray-dark;
+  transform: rotate(45deg); 
+
+  &-active {
+    background-color: $red-light;
   }
+}
+
+.heart-shape:before,
+.heart-shape::after,
+.heart-shape-active::before, 
+.heart-shape-active::after{
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  content: '';
+  border-radius: 50%;
+  background-color: $gray-dark;
+}
+
+.heart-shape:before,
+.heart-shape-active::before {
+  bottom: 0;
+  left: -12px;
+}
+
+.heart-shape::after,
+.heart-shape-active::after {
+  top: -12px;
+  right: 0;
+}
+
+.heart-shape-active::before,
+.heart-shape-active::after {
+  background-color: $red-light;
 }

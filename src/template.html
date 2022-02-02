@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://pokeapi.co">
   <title>Choose your Pokemon</title>
 </head>
 <body>
@@ -12,11 +13,15 @@
       <ul class="nav nav-parent">
         <li> <a href="#pokemons"> Logo </a> </li>
         <li> 
-          <ul class="nav nav-child">
+          <ul class="nav nav-child" data-active="false">
+            <li class="closeButton"><button type="button" class="close"></button></li>
             <li><a href="#pokemons"> Pokemons </a></li>
             <li><a href="#locations"> Locations </a></li>
             <li><a href="#about"> About </a></li>
           </ul> 
+        </li>
+        <li class="menuParent"> 
+          <button type="button" class="menu"></button>
         </li>
       </ul>
     </nav>

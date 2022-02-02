@@ -1,6 +1,7 @@
 import { getPokemons, getLikes, addLike } from './APIhandling.js';
-import Heart from '../../assets/icons/heart.svg';
 import itemsCounter from './util.js';
+import Menu from '../../assets/icons/hamburger.svg';
+import Close from '../../assets/icons/close.svg';
 
 const numRegex = /\d+/;
 // Display Home page
@@ -22,6 +23,7 @@ const displayPokemons = async () => {
 
     const image = new Image();
     image.src = pokemon.sprites.other.dream_world.front_default;
+    image.alt = name;
     image.classList.add('pokemon');
     card.appendChild(image);
 
@@ -33,8 +35,8 @@ const displayPokemons = async () => {
 
     const buttonHeart = document.createElement('button');
     buttonHeart.classList.add('heart');
-    const heart = new Image();
-    heart.src = Heart;
+    const heart = document.createElement('div');
+    heart.classList.add('heart-shape');
     buttonHeart.appendChild(heart);
     info.appendChild(buttonHeart);
 
@@ -45,9 +47,10 @@ const displayPokemons = async () => {
     likes.textContent = '0 Likes';
 
     buttonHeart.addEventListener('click', async () => {
-      await addLike(`pokemon-${id}`);
+      heart.classList.add('heart-shape-active');
       const numberOflikes = likes.textContent.match(numRegex)[0];
       likes.textContent = `${+numberOflikes + 1} Likes`;
+      await addLike(`pokemon-${id}`);
     }, { once: true });
 
     card.appendChild(likes);
@@ -78,4 +81,33 @@ const displayCounters = () => {
   });
 };
 
-export { displayPokemons, displayLikes, displayCounters };
+const addMenu = () => {
+  const menu = document.querySelector('.menu');
+  const menuImage = new Image();
+  menuImage.src = Menu;
+  menuImage.alt = 'Menu Button';
+
+  menu.appendChild(menuImage);
+
+  const close = document.querySelector('.close');
+  const closeImage = new Image();
+  closeImage.src = Close;
+  closeImage.alt = 'Close Button';
+
+  close.appendChild(closeImage);
+
+  const navChild = document.querySelector('.nav-child');
+  menu.addEventListener('click', () => {
+    navChild.setAttribute('data-active', 'true');
+  });
+  close.addEventListener('click', () => {
+    navChild.setAttribute('data-active', 'false');
+  });
+};
+
+export {
+  displayPokemons,
+  displayLikes,
+  displayCounters,
+  addMenu,
+};

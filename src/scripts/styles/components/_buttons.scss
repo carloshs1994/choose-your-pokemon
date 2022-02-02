@@ -23,6 +23,12 @@ button {
 .close {
   padding: 0;
   border: none;
+  background-color: transparent;
+  box-shadow: none;
+
+  &:hover {
+    background-color: transparent;
+  }
 }
 
 .menu {

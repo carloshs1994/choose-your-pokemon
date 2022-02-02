@@ -1,3 +1,25 @@
+.menu {
+  img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.menuParent {
+  display: none;
+
+  @include for-small-devices {
+    display: block;
+  }
+}
+
+.close {
+  img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
 button {
   font-size: 2rem;
   border: 2px solid black;
@@ -28,27 +50,5 @@ button {
 
   &:hover {
     background-color: transparent;
-  }
-}
-
-.menu {
-  img {
-    width: 40px;
-    height: 40px;
-  }
-}
-
-.menuParent {
-  display: none;
-
-  @include for-small-devices {
-    display: block;
-  }
-}
-
-.close {
-  img {
-    width: 24px;
-    height: 24px;
   }
 }

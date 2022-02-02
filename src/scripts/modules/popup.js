@@ -1,4 +1,5 @@
 import XButton from '../../assets/icons/close.svg';
+import { getPokemonComments, commentCounter } from './comments.js';
 
 const getPokemonInfo = async (id) => {
   const getInfo = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`);
@@ -15,6 +16,7 @@ export default () => {
   buttons.forEach((button) => {
     button.addEventListener('click', (event) => {
       const { id } = event.target;
+      const pokemonId = event.target.parentElement.id;
       getPokemonInfo(id).then((json) => {
         const h2 = document.querySelector('.popup > h2');
         const pBaseExperience = document.querySelector('.base-experience');
@@ -58,11 +60,25 @@ export default () => {
         pWeight.innerText = `Weight: ${weight}`;
         pMoves.innerText = `Some moves are: ${stringWithMoves}`;
         close.addEventListener('click', () => {
-          document.querySelector('.popup').style.display = 'none';
+          document.querySelector('.popup').classList.remove('show');
           pokemonImgContainer.innerHTML = '';
+          document.querySelector('.popup-comments > h3').innerText = '';
+          document.querySelector('.popup-comments > ul').innerHTML = '';
         });
       });
-      document.querySelector('.popup').style.display = 'flex';
+      getPokemonComments(pokemonId).then((json) => {
+        if (json.length !== undefined) {
+          json.forEach((user) => {
+            document.querySelector('.popup-comments > h3').innerText = `Comments (${commentCounter(json.length)})`;
+            const li = document.createElement('li');
+            li.innerText = `${user.creation_date}. ${user.username}: ${user.comment}`;
+            document.querySelector('.popup-comments > ul').appendChild(li);
+          });
+        } else {
+          document.querySelector('.popup-comments > h3').innerText = `Comments (${commentCounter(json.length)})`;
+        }
+      });
+      document.querySelector('.popup').classList.add('show');
     });
   });
 };

@@ -1,4 +1,5 @@
 import XButton from '../../assets/icons/close.svg';
+import { getPokemonComments, commentCounter, addPokemonComments } from './comments.js';
 
 const getPokemonInfo = async (id) => {
   const getInfo = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`);
@@ -6,15 +7,33 @@ const getPokemonInfo = async (id) => {
   return json;
 };
 
+const updateComments = async (pokemonId) => {
+  const json = await getPokemonComments(pokemonId);
+  document.querySelector('.popup-comments > ul').innerHTML = '';
+  if (json.length !== undefined) {
+    json.forEach((user) => {
+      document.querySelector('.popup-comments > h3').innerText = `Comments (${commentCounter(json.length)})`;
+      const li = document.createElement('li');
+      li.innerText = `${user.creation_date}. ${user.username}: ${user.comment}`;
+      document.querySelector('.popup-comments > ul').appendChild(li);
+    });
+  } else {
+    document.querySelector('.popup-comments > h3').innerText = `Comments (${commentCounter(json.length)})`;
+  }
+};
+
 export default () => {
   const buttons = [...document.querySelectorAll('.comments')];
   const close = document.querySelector('.popup-close');
   const xImg = document.createElement('img');
+  const form = document.querySelector('form');
+  let pokemonId = '';
   xImg.src = XButton;
   close.appendChild(xImg);
   buttons.forEach((button) => {
     button.addEventListener('click', (event) => {
       const { id } = event.target;
+      pokemonId = event.target.parentElement.id;
       getPokemonInfo(id).then((json) => {
         const h2 = document.querySelector('.popup > h2');
         const pBaseExperience = document.querySelector('.base-experience');
@@ -58,11 +77,27 @@ export default () => {
         pWeight.innerText = `Weight: ${weight}`;
         pMoves.innerText = `Some moves are: ${stringWithMoves}`;
         close.addEventListener('click', () => {
-          document.querySelector('.popup').style.display = 'none';
+          document.querySelector('.popup').classList.remove('show');
           pokemonImgContainer.innerHTML = '';
+          document.querySelector('.popup-comments > h3').innerText = '';
+          document.querySelector('.popup-comments > ul').innerHTML = '';
         });
       });
-      document.querySelector('.popup').style.display = 'flex';
+      updateComments(pokemonId);
+      document.querySelector('.popup').classList.add('show');
     });
+  });
+  form.addEventListener('submit', async (event) => {
+    const username = document.getElementById('username');
+    const comment = document.getElementById('comment');
+    const modalContainer = document.querySelector('.modal-container');
+    event.preventDefault();
+    await addPokemonComments(pokemonId, username.value, comment.value);
+    await updateComments(pokemonId);
+    form.reset();
+    modalContainer.style.display = 'flex';
+    setTimeout(() => {
+      modalContainer.style.display = 'none';
+    }, 2000);
   });
 };

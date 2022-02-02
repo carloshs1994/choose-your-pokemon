@@ -38,14 +38,17 @@ main {
 
 .popup {
   position: fixed;
+  top: -150%;
+  left: 0;
   height: 100vh;
   width: 100vw;
-  background-color: rgba(255, 255, 255, 0.9);
-  display: none;
+  background-color: rgba(255, 255, 255, 0.95);
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 2%;
+  transition: 0.5s;
 
   &-close {
     position: absolute;
@@ -65,8 +68,8 @@ main {
   }
 
   &-img {
-    height: 300px;
-    width: 300px;
+    height: 200px;
+    width: 200px;
     border: 2px solid black;
     border-radius: 5%;
     padding: 10px;
@@ -78,8 +81,36 @@ main {
   }
 
   h2 {
-    font-size: 3rem;
     text-transform: capitalize;
+  }
+
+  &-comments {
+    height: auto;
+    max-height: 100px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+
+    h3,
+    li {
+      width: 100%;
+    }
+
+    h3 {
+      text-align: center;
+      margin: 5px 0;
+    }
+
+    ul {
+      height: 75px;
+      width: 100%;
+      overflow-y: auto;
+    }
+
+    li {
+      font-size: 1.5rem;
+      margin-bottom: 7px;
+    }
   }
 
   &-info {
@@ -88,10 +119,10 @@ main {
     flex-wrap: wrap;
     justify-content: space-between;
 
-    p {
+    & > li {
       width: 155px;
-      margin: 10px 0;
-      font-size: 1.5rem;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
 
       &:nth-child(2n) {
         text-align: right;
@@ -102,6 +133,53 @@ main {
       width: 100%;
     }
   }
+
+  &-add-comments {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    form {
+      width: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      input {
+        width: 200px;
+      }
+
+      textarea {
+        resize: vertical;
+        max-height: 70px;
+      }
+
+      button {
+        width: 210px;
+      }
+    }
+
+    div {
+      display: none;
+      position: absolute;
+      bottom: 7px;
+      right: 0;
+      background-color: chartreuse;
+      width: 100px;
+      border-radius: 5%;
+      padding: 3px;
+
+      p {
+        text-align: center;
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
+
+.show {
+  top: 0;
 }
 
 .info {

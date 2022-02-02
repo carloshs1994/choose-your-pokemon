@@ -1,8 +1,9 @@
-import getPokemons from './APIhandling.js';
+import { getPokemons, getLikes, addLike } from './APIhandling.js';
 import Heart from '../../assets/icons/heart.svg';
 
+const numRegex = /\d+/;
 // Display Home page
-export default async () => {
+const displayPokemons = async () => {
   // Array of pokemons
   const pokemons = await getPokemons();
   const main = document.querySelector('main');
@@ -38,6 +39,18 @@ export default async () => {
 
     card.appendChild(info);
 
+    const likes = document.createElement('p');
+    likes.classList.add('likes');
+    likes.textContent = '0 Likes';
+
+    buttonHeart.addEventListener('click', async () => {
+      await addLike(`pokemon-${id}`);
+      const numberOflikes = likes.textContent.match(numRegex)[0];
+      likes.textContent = `${+numberOflikes + 1} Likes`;
+    }, { once: true });
+
+    card.appendChild(likes);
+
     const commentsButton = document.createElement('button');
     commentsButton.className = 'comments';
     commentsButton.id = id;
@@ -45,3 +58,14 @@ export default async () => {
     card.appendChild(commentsButton);
   });
 };
+
+const displayLikes = async () => {
+  const likes = await getLikes();
+  likes.forEach((likeCount) => {
+    const card = document.querySelector(`#${likeCount.item_id}`);
+    const likesElement = card.querySelector('.likes');
+    likesElement.textContent = `${likeCount.likes} Likes`;
+  });
+};
+
+export { displayPokemons, displayLikes };

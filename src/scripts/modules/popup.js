@@ -90,9 +90,14 @@ export default () => {
   form.addEventListener('submit', async (event) => {
     const username = document.getElementById('username');
     const comment = document.getElementById('comment');
+    const modalContainer = document.querySelector('.modal-container');
     event.preventDefault();
     await addPokemonComments(pokemonId, username.value, comment.value);
     await updateComments(pokemonId);
     form.reset();
+    modalContainer.style.display = 'flex';
+    setTimeout(() => {
+      modalContainer.style.display = 'none';
+    }, 2000);
   });
 };

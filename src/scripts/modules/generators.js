@@ -1,5 +1,6 @@
 import { getPokemons, getLikes, addLike } from './APIhandling.js';
 import Heart from '../../assets/icons/heart.svg';
+import itemsCounter from './util.js';
 
 const numRegex = /\d+/;
 // Display Home page
@@ -68,4 +69,13 @@ const displayLikes = async () => {
   });
 };
 
-export { displayPokemons, displayLikes };
+const displayCounters = () => {
+  const tags = document.querySelectorAll('a');
+  tags.forEach((tag) => {
+    if (tag.textContent.trim() === 'Pokemons') {
+      tag.textContent = ` Pokemons (${itemsCounter()})`;
+    }
+  });
+};
+
+export { displayPokemons, displayLikes, displayCounters };

@@ -1,4 +1,5 @@
 import { displayPokemons, displayLikes } from '../modules/generators.js';
+import itemsCounter from '../modules/util.js';
 
 jest.mock('../modules/APIhandling');
 
@@ -18,5 +19,30 @@ describe('Home Page Tests', () => {
 
     const likes = document.querySelector('p');
     expect(likes.textContent).toBe('5 Likes');
+  });
+  test('Items Counter', () => {
+    document.body.innerHTML = `
+      <ul>
+        <li class="card"></li>
+        <li class="card"></li>
+        <li class="card"></li>
+        <li class="card"></li>
+        <li class="card"></li>
+        <li class="card"></li>
+        <li class="card"></li>
+        <li class="card"></li>
+        <li class="card"></li>
+        <li class="card"></li>
+        <li class="card"></li>
+        <li class="card"></li>
+        <li class="card"></li>
+        <li class="card"></li>
+        <li class="card"></li>
+      </ul>
+    `;
+
+    const count = itemsCounter();
+
+    expect(count).toBe(15);
   });
 });

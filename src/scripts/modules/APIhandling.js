@@ -1,4 +1,4 @@
-export default async () => {
+const getPokemons = async () => {
   let pokemons = [];
   for (let i = 1; i <= 20; i += 1) {
     const pokemon = fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`).then((response) => response.json());
@@ -7,3 +7,30 @@ export default async () => {
   pokemons = await Promise.all(pokemons);
   return pokemons;
 };
+
+const getLikes = async () => {
+  let likes;
+  const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/BeZr9XamNVOo33K8TRz4/likes';
+  try {
+    likes = await fetch(url).then((response) => response.json());
+  } catch (error) {
+    likes = [];
+  }
+  return likes;
+};
+
+const addLike = async (itemID) => {
+  const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/BeZr9XamNVOo33K8TRz4/likes';
+  const item = {
+    item_id: itemID,
+  };
+  await fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(item),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  }).then((response) => response.text());
+};
+
+export { getPokemons, getLikes, addLike };

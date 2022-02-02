@@ -1,4 +1,4 @@
-export default async () => {
+const getPokemons = async () => {
   const pokemons = [
     {
       id: 1,
@@ -36,3 +36,7 @@ export default async () => {
   ];
   return Promise.resolve(pokemons);
 };
+
+const getLikes = async () => Promise.resolve([{ item_id: 'pokemon-1', likes: 5 }]);
+
+export { getPokemons, getLikes };

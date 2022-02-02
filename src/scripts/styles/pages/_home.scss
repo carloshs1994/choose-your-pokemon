@@ -5,7 +5,7 @@
   left: 0;
   height: 100vh;
   width: 100vw;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.95);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -72,6 +72,7 @@
 
     li {
       font-size: 1.5rem;
+      margin-bottom: 7px;
     }
   }
 
@@ -93,6 +94,48 @@
 
     :last-child {
       width: 100%;
+    }
+  }
+
+  &-add-comments {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    form {
+      width: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      input {
+        width: 200px;
+      }
+
+      textarea {
+        resize: vertical;
+        max-height: 70px;
+      }
+
+      button {
+        width: 210px;
+      }
+    }
+
+    div {
+      position: absolute;
+      bottom: 7px;
+      right: 0;
+      background-color: chartreuse;
+      width: 100px;
+      border-radius: 5%;
+      padding: 3px;
+
+      p {
+        text-align: center;
+        font-size: 1.3rem;
+      }
     }
   }
 }

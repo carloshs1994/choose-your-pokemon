@@ -1,5 +1,5 @@
 import XButton from '../../assets/icons/close.svg';
-import { getPokemonComments, commentCounter } from './comments.js';
+import { getPokemonComments, commentCounter, addPokemonComments } from './comments.js';
 
 const getPokemonInfo = async (id) => {
   const getInfo = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`);
@@ -7,16 +7,34 @@ const getPokemonInfo = async (id) => {
   return json;
 };
 
+const updateComments = (pokemonId) => {
+  getPokemonComments(pokemonId).then((json) => {
+    document.querySelector('.popup-comments > ul').innerHTML = '';
+    if (json.length !== undefined) {
+      json.forEach((user) => {
+        document.querySelector('.popup-comments > h3').innerText = `Comments (${commentCounter(json.length)})`;
+        const li = document.createElement('li');
+        li.innerText = `${user.creation_date}. ${user.username}: ${user.comment}`;
+        document.querySelector('.popup-comments > ul').appendChild(li);
+      });
+    } else {
+      document.querySelector('.popup-comments > h3').innerText = `Comments (${commentCounter(json.length)})`;
+    }
+  });
+};
+
 export default () => {
   const buttons = [...document.querySelectorAll('.comments')];
   const close = document.querySelector('.popup-close');
   const xImg = document.createElement('img');
+  const form = document.querySelector('form');
+  let pokemonId = '';
   xImg.src = XButton;
   close.appendChild(xImg);
   buttons.forEach((button) => {
     button.addEventListener('click', (event) => {
       const { id } = event.target;
-      const pokemonId = event.target.parentElement.id;
+      pokemonId = event.target.parentElement.id;
       getPokemonInfo(id).then((json) => {
         const h2 = document.querySelector('.popup > h2');
         const pBaseExperience = document.querySelector('.base-experience');
@@ -66,19 +84,17 @@ export default () => {
           document.querySelector('.popup-comments > ul').innerHTML = '';
         });
       });
-      getPokemonComments(pokemonId).then((json) => {
-        if (json.length !== undefined) {
-          json.forEach((user) => {
-            document.querySelector('.popup-comments > h3').innerText = `Comments (${commentCounter(json.length)})`;
-            const li = document.createElement('li');
-            li.innerText = `${user.creation_date}. ${user.username}: ${user.comment}`;
-            document.querySelector('.popup-comments > ul').appendChild(li);
-          });
-        } else {
-          document.querySelector('.popup-comments > h3').innerText = `Comments (${commentCounter(json.length)})`;
-        }
-      });
+      updateComments(pokemonId);
       document.querySelector('.popup').classList.add('show');
     });
+  });
+  form.addEventListener('submit', (event) => {
+    const username = document.getElementById('username');
+    const comment = document.getElementById('comment');
+    event.preventDefault();
+    addPokemonComments(pokemonId, username.value, comment.value).then(() => {
+      updateComments(pokemonId);
+    });
+    form.reset();
   });
 };

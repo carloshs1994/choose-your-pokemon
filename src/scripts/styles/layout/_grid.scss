@@ -23,3 +23,15 @@ main {
 footer {
   grid-area: Footer;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $gray-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $gray-light;
+}

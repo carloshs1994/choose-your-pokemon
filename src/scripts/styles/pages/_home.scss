@@ -51,20 +51,20 @@ main {
   left: 0;
   height: 100vh;
   width: 100vw;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: $blue-light-transparent;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2%;
+  gap: 1%;
   transition: 0.5s;
 
   &-close {
     position: absolute;
     top: 2%;
     right: 2%;
-    height: 50px;
-    width: 50px;
+    height: 10vw;
+    width: 10vw;
 
     img {
       width: 100%;
@@ -74,14 +74,21 @@ main {
     &:hover {
       cursor: pointer;
     }
+
+    @media (min-width: 768px) {
+      height: 77px;
+      width: 77px;
+    }
   }
 
   &-img {
-    height: 200px;
-    width: 200px;
+    height: 30vh;
+    width: 30vh;
     border: 2px solid black;
     border-radius: 5%;
     padding: 10px;
+    background-color: $black-custom;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0 inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 
     img {
       width: 100%;
@@ -95,8 +102,9 @@ main {
 
   &-comments {
     height: auto;
-    max-height: 100px;
-    width: 320px;
+    max-height: 20vh;
+    width: 95vw;
+    max-width: 400px;
     display: flex;
     flex-direction: column;
 
@@ -114,6 +122,9 @@ main {
       height: 75px;
       width: 100%;
       overflow-y: auto;
+      border: 2px dashed $black-custom;
+      padding-left: 1%;
+      padding-top: 1%;
     }
 
     li {
@@ -123,13 +134,16 @@ main {
   }
 
   &-info {
-    width: 320px;
+    width: 95vw;
+    max-width: 400px;
+    height: 20vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 
     & > li {
-      width: 155px;
+      width: 46vw;
+      max-width: 180px;
       margin-bottom: 10px;
       font-size: 1.3rem;
 
@@ -140,28 +154,48 @@ main {
 
     :last-child {
       width: 100%;
+      max-width: 400px;
+      margin-bottom: 0;
     }
   }
 
   &-add-comments {
     position: relative;
+    width: 95vw;
+    max-width: 400px;
+    height: 20vh;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 2px;
 
     form {
-      width: 320px;
+      width: 100%;
       display: flex;
       flex-direction: column;
       gap: 5px;
+
+      input,
+      textarea {
+        background-color: $black-custom;
+        border-color: black;
+        color: $white-custom;
+        padding: 3px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
+
+        &::placeholder {
+          color: $white-custom;
+          font-weight: 400;
+        }
+      }
 
       input {
         width: 200px;
       }
 
       textarea {
-        resize: vertical;
+        resize: none;
         max-height: 70px;
+        width: calc(100% - 8px);
       }
 
       button {
@@ -174,7 +208,7 @@ main {
       position: absolute;
       bottom: 7px;
       right: 0;
-      background-color: chartreuse;
+      background-color: $green-light;
       width: 100px;
       border-radius: 5%;
       padding: 3px;

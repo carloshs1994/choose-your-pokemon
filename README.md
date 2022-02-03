@@ -6,7 +6,7 @@
 
 ![Preview](./preview.gif))
 
-Got code them all! The ultimate fan database is now available. Go through the list of Pokemons, pick the best ones (including evolution), comment, like, and see which one is the best among the community of Trainers!
+Got to code them all! The ultimate fan database is now available. Go through the list of Pokemons, pick the best ones (including evolution), comment, like, and see which one is the best among the community of Trainers!
 
 ## Built With
 

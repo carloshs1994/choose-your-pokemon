@@ -1,0 +1,18 @@
+// footer
+footer {
+  border: 1px solid black;
+  padding: 3rem;
+  background-color: $orange-light;
+
+  p,
+  a {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 2rem;
+    transition: padding 0.2s ease-in-out;
+  }
+
+  a:hover {
+    color: $red-medium;
+    padding: 3px;
+  }
+}

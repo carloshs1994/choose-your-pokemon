@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JohnFTitor/webpackTemplate.git"
+    "url": "git+https://github.com/carloshs1994/choose-your-pokemon.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/JohnFTitor/webpackTemplate/issues"
+    "url": "https://github.com/carloshs1994/choose-your-pokemon/issues"
   },
-  "homepage": "https://github.com/JohnFTitor/webpackTemplate#readme",
+  "homepage": "https://carloshs1994.github.io/choose-your-pokemon/",
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.16.8",
     "babel-eslint": "^10.1.0",
@@ -44,6 +44,7 @@
     "webpack-dev-server": "^4.7.2"
   },
   "dependencies": {
-    "gh-pages": "^3.2.3"
+    "gh-pages": "^3.2.3",
+    "jest-config": "^27.4.7"
   }
 }

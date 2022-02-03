@@ -20,9 +20,9 @@ const addPokemonComments = async (pokemonId, username, comment) => {
   return json;
 };
 
-const commentCounter = (length) => {
-  if (length === undefined || length === null) return 0;
-  return length;
+const commentCounter = (json) => {
+  if (json.length === undefined || json.length === null) return 0;
+  return json.length;
 };
 
 export {

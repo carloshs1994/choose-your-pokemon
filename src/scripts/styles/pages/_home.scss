@@ -89,6 +89,14 @@ main {
     padding: 10px;
     background-color: $black-custom;
     box-shadow: rgb(204, 219, 232) 3px 3px 6px 0 inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    transition: 0.2s;
+
+    &:hover {
+      box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+      transform: scale(1.02);
+      background-color: black;
+      border: 2px solid $white-custom;
+    }
 
     img {
       width: 100%;

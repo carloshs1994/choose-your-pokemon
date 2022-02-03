@@ -45,6 +45,7 @@ export default () => {
         const pWeight = document.querySelector('.weight');
         const pMoves = document.querySelector('.moves');
         const pokemonImgContainer = document.querySelector('.popup-img');
+        pokemonImgContainer.innerHTML = '';
         const pokemonImg = document.createElement('img');
         const {
           name,

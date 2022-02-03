@@ -1,29 +1,31 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Title
+# Choose Your Pokemon
 
-> Project headline description
+> "Choose your Pokemon" is a Webpack project meant to fetch data from two different APIs: [PokéAPI](https://pokeapi.co/) and Involvement API. Here we display a list of 20 Pokemons for whom one can like, display more info, and comment; all based on the data from these two external resources.  
 
 ![Preview](./preview.gif))
 
-Project Description
+Got to code them all! The ultimate fan database is now available. Go through the list of Pokemons, pick the best ones (including evolution), comment, like, and see which one is the best among the community of Trainers!
 
 ## Built With
 
-Tecnologies used
+- HTML/SCSS, JavaScript.
+- WebPack, Jest, External APIs.
+- Visual Studio Code, Polypane.
 
 ## Live Demo
 
-[Live Demo Link]()
+[Live Demo Link](https://carloshs1994.github.io/choose-your-pokemon/)
 
 
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
 
-- Clone this repository with git clone```https://github.com/username/projectname.git``` using your terminal or command line.
+- Clone this repository with git clone```git@github.com:carloshs1994/choose-your-pokemon.git``` using your terminal or command line.
 - Change to the project directory by entering : <br>
-```cd projectname``` in the terminal
+```cd choose-your-pokemon``` in the terminal
 
 ### Prerequisites
 
@@ -60,6 +62,11 @@ Linter Checks are automatically run with Github actions when there's a pull requ
 The deployment can be found in the Github Pages of this repository or through the link provided above
 
 ## Authors
+
+👤 **Carlos Herver Solano**
+
+- GitHub: [@carloshs1994](https://github.com/carloshs1994)
+- Twitter: [@hscarlos_](https://twitter.com/hscarlos_)
 
 👤 **Andrés Felipe Arroyave Naranjo**
 

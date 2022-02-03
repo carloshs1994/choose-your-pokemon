@@ -12,13 +12,13 @@ const updateComments = async (pokemonId) => {
   document.querySelector('.popup-comments > ul').innerHTML = '';
   if (json.length !== undefined) {
     json.forEach((user) => {
-      document.querySelector('.popup-comments > h3').innerText = `Comments (${commentCounter(json.length)})`;
+      document.querySelector('.popup-comments > h3').innerText = `Comments (${commentCounter(json)})`;
       const li = document.createElement('li');
       li.innerText = `${user.creation_date}. ${user.username}: ${user.comment}`;
       document.querySelector('.popup-comments > ul').appendChild(li);
     });
   } else {
-    document.querySelector('.popup-comments > h3').innerText = `Comments (${commentCounter(json.length)})`;
+    document.querySelector('.popup-comments > h3').innerText = `Comments (${commentCounter(json)})`;
   }
 };
 
@@ -28,10 +28,11 @@ export default () => {
   const xImg = document.createElement('img');
   const form = document.querySelector('form');
   let pokemonId = '';
+  close.innerHTML = '';
   xImg.src = XButton;
   close.appendChild(xImg);
   buttons.forEach((button) => {
-    button.addEventListener('click', (event) => {
+    button.addEventListener('click', async (event) => {
       const { id } = event.target;
       pokemonId = event.target.parentElement.id;
       getPokemonInfo(id).then((json) => {
@@ -83,7 +84,7 @@ export default () => {
           document.querySelector('.popup-comments > ul').innerHTML = '';
         });
       });
-      updateComments(pokemonId);
+      await updateComments(pokemonId);
       document.querySelector('.popup').classList.add('show');
     });
   });

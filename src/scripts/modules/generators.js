@@ -2,6 +2,7 @@ import { getPokemons, getLikes, addLike } from './APIhandling.js';
 import itemsCounter from './util.js';
 import Menu from '../../assets/icons/hamburger.svg';
 import Close from '../../assets/icons/close.svg';
+import displayPopup from './popup.js';
 
 const numRegex = /\d+/;
 // Display Home page
@@ -110,9 +111,26 @@ const addMenu = () => {
   });
 };
 
+const displaySeeMoreButton = () => {
+  const main = document.querySelector('main');
+  const seeMore = document.createElement('button');
+  seeMore.classList.add('see-more');
+  seeMore.setAttribute('type', 'button');
+  seeMore.textContent = 'Display More Pokemons!';
+  main.appendChild(seeMore);
+
+  seeMore.addEventListener('click', async () => {
+    await displayPokemons(10);
+    await displayLikes();
+    displayPopup();
+    displayCounters();
+  });
+};
+
 export {
   displayPokemons,
   displayLikes,
   displayCounters,
   addMenu,
+  displaySeeMoreButton,
 };

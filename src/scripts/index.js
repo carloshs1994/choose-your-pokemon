@@ -5,12 +5,14 @@ import {
   displayLikes,
   displayCounters,
   addMenu,
+  displaySeeMoreButton,
 } from './modules/generators.js';
 import displayPopup from './modules/popup.js';
 
 window.onload = async () => {
-  await displayPokemons(10);
+  await displayPokemons(20);
   await displayLikes();
+  displaySeeMoreButton();
   displayPopup();
   displayCounters();
   addMenu();
@@ -19,14 +21,16 @@ window.onload = async () => {
 const nav = document.querySelector('.nav');
 const main = document.querySelector('main');
 const linkTags = nav.querySelectorAll('a');
+
 linkTags.forEach((tag) => {
   const reGex = /#[\w-]+/g;
   tag.addEventListener('click', async (event) => {
     const pageId = event.target.href.match(reGex)[0];
     main.innerHTML = '<h1> Pick your Favorite Pokemon! </h1>';
     if (pageId === '#pokemons') {
-      await displayPokemons(15);
+      await displayPokemons(20);
       await displayLikes();
+      displaySeeMoreButton();
       displayPopup();
       displayCounters();
     }

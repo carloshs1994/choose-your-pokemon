@@ -5,13 +5,20 @@ import Close from '../../assets/icons/close.svg';
 
 const numRegex = /\d+/;
 // Display Home page
-const displayPokemons = async () => {
+const displayPokemons = async (numberOfPokemons) => {
   // Array of pokemons
-  const pokemons = await getPokemons();
+  const startingIndex = itemsCounter();
+  const pokemons = await getPokemons(startingIndex, numberOfPokemons);
   const main = document.querySelector('main');
-  const cardsContainer = document.createElement('ul');
-  cardsContainer.classList.add('cardsContainer');
-  main.appendChild(cardsContainer);
+  let cardsContainer;
+
+  if (document.querySelector('.cardsContainer')) {
+    cardsContainer = document.querySelector('.cardsContainer');
+  } else {
+    cardsContainer = document.createElement('ul');
+    cardsContainer.classList.add('cardsContainer');
+    main.appendChild(cardsContainer);
+  }
 
   pokemons.forEach((pokemon) => {
     const card = document.createElement('li');
@@ -67,18 +74,16 @@ const displayLikes = async () => {
   const likes = await getLikes();
   likes.forEach((likeCount) => {
     const card = document.querySelector(`#${likeCount.item_id}`);
-    const likesElement = card.querySelector('.likes');
-    likesElement.textContent = `${likeCount.likes} Likes`;
+    if (card) {
+      const likesElement = card.querySelector('.likes');
+      likesElement.textContent = `${likeCount.likes} Likes`;
+    }
   });
 };
 
 const displayCounters = () => {
-  const tags = document.querySelectorAll('a');
-  tags.forEach((tag) => {
-    if (tag.textContent.trim() === 'Pokemons') {
-      tag.textContent = ` Pokemons (${itemsCounter()})`;
-    }
-  });
+  const pokemonTag = document.querySelector('#pokemonTag');
+  pokemonTag.textContent = ` Pokemons (${itemsCounter()})`;
 };
 
 const addMenu = () => {

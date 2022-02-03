@@ -9,7 +9,7 @@ import {
 import displayPopup from './modules/popup.js';
 
 window.onload = async () => {
-  await displayPokemons();
+  await displayPokemons(10);
   await displayLikes();
   displayPopup();
   displayCounters();
@@ -25,7 +25,7 @@ linkTags.forEach((tag) => {
     const pageId = event.target.href.match(reGex)[0];
     main.innerHTML = '<h1> Pick your Favorite Pokemon! </h1>';
     if (pageId === '#pokemons') {
-      await displayPokemons();
+      await displayPokemons(15);
       await displayLikes();
       displayPopup();
       displayCounters();

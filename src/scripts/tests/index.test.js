@@ -7,10 +7,10 @@ describe('Home Page Tests', () => {
   test('Generates ul of cards', async () => {
     document.body.innerHTML = '<main></main>';
 
-    await displayPokemons();
+    await displayPokemons(2);
 
     const cards = document.querySelectorAll('li');
-    expect(cards).toHaveLength(3);
+    expect(cards).toHaveLength(2);
   });
   test('Display all like items', async () => {
     document.body.innerHTML = '<ul><li id="pokemon-1"><p class="likes">0 Likes</p><li></ul>';

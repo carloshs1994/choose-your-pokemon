@@ -10,6 +10,7 @@
   &-parent {
     border: 1px solid black;
     padding: 2rem 3rem;
+    align-items: center;
   }
 
   &-child {
@@ -56,5 +57,11 @@
     display: block;
     color: $red-medium;
     padding: 3px;
+  }
+}
+
+#logo {
+  img {
+    height: 70px;
   }
 }

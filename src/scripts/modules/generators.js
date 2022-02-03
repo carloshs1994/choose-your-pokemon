@@ -3,6 +3,7 @@ import itemsCounter from './util.js';
 import Menu from '../../assets/icons/hamburger.svg';
 import Close from '../../assets/icons/close.svg';
 import displayPopup from './popup.js';
+import PokeLogo from '../../assets/icons/pokeLogo.svg';
 
 const numRegex = /\d+/;
 // Display Home page
@@ -109,6 +110,12 @@ const addMenu = () => {
   close.addEventListener('click', () => {
     navChild.setAttribute('data-active', 'false');
   });
+
+  const pokeLogo = new Image();
+  const logo = document.querySelector('#logo');
+  pokeLogo.src = PokeLogo;
+  pokeLogo.alt = '';
+  logo.appendChild(pokeLogo);
 };
 
 const displaySeeMoreButton = () => {

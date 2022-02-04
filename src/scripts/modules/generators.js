@@ -4,6 +4,7 @@ import Menu from '../../assets/icons/hamburger.svg';
 import Close from '../../assets/icons/close.svg';
 import displayPopup from './popup.js';
 import PokeLogo from '../../assets/icons/pokeLogo.svg';
+import SadPokemon from '../../assets/images/sadPokemon.jpg';
 
 const numRegex = /\d+/;
 // Display Home page
@@ -135,10 +136,76 @@ const displaySeeMoreButton = () => {
   });
 };
 
+const generateDescription = (text, parent) => {
+  const description = document.createElement('p');
+  description.classList.add('description');
+  description.textContent = text;
+  parent.appendChild(description);
+  return description;
+};
+
+const addAboutSection = () => {
+  const main = document.querySelector('main');
+  const aboutSection = document.createElement('section');
+  aboutSection.classList.add('about');
+  main.appendChild(aboutSection);
+
+  const h1 = document.createElement('h1');
+  h1.textContent = '"Choose your Pokemon" initiative';
+  aboutSection.appendChild(h1);
+
+  const imgContainer = document.createElement('div');
+  imgContainer.classList.add('sadPokemon');
+  const sadPokemon = new Image();
+  sadPokemon.src = SadPokemon;
+  sadPokemon.alt = 'Three pokemon crying';
+  imgContainer.appendChild(sadPokemon);
+  aboutSection.appendChild(imgContainer);
+
+  const h2 = document.createElement('h2');
+  h2.textContent = 'What are we?';
+  aboutSection.appendChild(h2);
+
+  const descriptionContainer = document.createElement('div');
+  descriptionContainer.classList.add('description-container');
+  aboutSection.appendChild(descriptionContainer);
+
+  generateDescription(
+    `Nowadays internet has become the most useful tool around the world. 
+  It has allowed people to connect in extensive manners. Following the trends 
+  Pokemon species started to be interested in the web world and have tried, 
+  without success, to get attention from the outside world. Why? Because not being human 
+  forbids them to create an Instagram account to publish photos. This is a crime. 
+  You can see how sad they are above. 
+  `, descriptionContainer,
+  );
+
+  generateDescription(
+    `"Choose your Pokemon" is a movement that aims to give Pokemon the love they 
+    deserve. It holds a list of up to 500 Pokemons waiting to receive likes and lovely comments. 
+    Go. Don't hesitate. Go and change their faces to smiley Pokemons.`, descriptionContainer,
+  );
+
+  generateDescription(
+    `If you want to support this movement, it's not like you should donate 100 BTC or anything. 
+    They would love it though.`, descriptionContainer,
+  );
+
+  const note = generateDescription('', descriptionContainer);
+  note.innerHTML = `
+    Note: This is just an exercise meant to learn API fetching, Testing, and JavaScript in general. 
+    No donations or something like that (We include this just in case). Recognition is important so 
+    definitely go and check <a href="https://pokeapi.co/" target="_blank"> PokéAPI </a> if you're interested in fetching this and 
+    even more data about Pokemon. They've done an incredible job.
+  `;
+  note.classList.add('note');
+};
+
 export {
   displayPokemons,
   displayLikes,
   displayCounters,
   addMenu,
   displaySeeMoreButton,
+  addAboutSection,
 };

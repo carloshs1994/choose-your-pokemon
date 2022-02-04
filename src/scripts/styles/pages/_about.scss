@@ -1,0 +1,50 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    margin-bottom: 50px;
+  }
+
+  h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    padding: 30px;
+    font-family: 'Roboto', sans-serif;
+  }
+}
+
+.sadPokemon {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+
+  img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    object-position: left;
+  }
+}
+
+.description-container {
+  width: 80%;
+  padding: 30px;
+
+  @include for-small-devices {
+    width: 100%;
+  }
+}
+
+.description {
+  font-family: 'Roboto', sans-serif;
+  padding: 20px;
+  font-size: 2.5rem;
+
+  a {
+    font-size: 2.5rem;
+    color: $red-light;
+  }
+}

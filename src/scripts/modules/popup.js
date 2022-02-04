@@ -77,8 +77,8 @@ export default () => {
         h2.innerText = `${name} has:`;
         pBaseExperience.innerHTML = `<strong>Base Experience:</strong> ${baseExperience}`;
         pAbilities.innerHTML = `<strong>Abilities:</strong> ${stringWithabilities}`;
-        pHeight.innerHTML = `<strong>Height:</strong> ${height}`;
-        pWeight.innerHTML = `<strong>Weight:</strong> ${weight}`;
+        pHeight.innerHTML = `<strong>Height:</strong> ${height} cm`;
+        pWeight.innerHTML = `<strong>Weight:</strong> ${weight} kg`;
         pMoves.innerHTML = `<strong>Some moves are:</strong> ${stringWithMoves}`;
         close.addEventListener('click', () => {
           document.querySelector('.popup').classList.remove('show');

@@ -2,12 +2,15 @@
   0% {
     transform: rotate(0deg);
   }
+
   25% {
     transform: rotate(90deg);
   }
+
   50% {
     transform: rotate(180deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -19,7 +22,6 @@
   width: 50%;
   left: 38%;
   top: 250px;
-
   animation: 0.8s linear 0s infinite spin;
 
   @include for-small-devices {

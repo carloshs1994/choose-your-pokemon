@@ -199,6 +199,14 @@ const addAboutSection = () => {
     even more data about Pokemon. They've done an incredible job.
   `;
   note.classList.add('note');
+
+  const pikachu = document.createElement('div');
+  pikachu.innerHTML = `
+  <div style="width:100%;height:0;padding-bottom:75%;position:relative;">
+  <iframe src="https://giphy.com/embed/xuXzcHMkuwvf2" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+  </div>
+  `;
+  descriptionContainer.appendChild(pikachu);
 };
 
 export {

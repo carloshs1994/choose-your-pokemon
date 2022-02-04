@@ -1,3 +1,32 @@
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  position: absolute;
+  max-width: 350px;
+  width: 50%;
+  left: 38%;
+  top: 250px;
+
+  animation: 0.8s linear 0s infinite spin;
+
+  @include for-small-devices {
+    left: 25vw;
+  }
+}
+
 main {
   h1 {
     text-align: center;

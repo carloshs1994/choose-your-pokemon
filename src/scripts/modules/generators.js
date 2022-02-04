@@ -8,11 +8,26 @@ import SadPokemon from '../../assets/images/sadPokemon.jpg';
 
 const numRegex = /\d+/;
 // Display Home page
+const displaySpinner = () => {
+  const main = document.querySelector('main');
+  const pokeLogo = new Image();
+  pokeLogo.src = PokeLogo;
+  pokeLogo.classList.add('spinner');
+  main.appendChild(pokeLogo);
+};
+
 const displayPokemons = async (numberOfPokemons) => {
   // Array of pokemons
   const startingIndex = itemsCounter();
   const pokemons = await getPokemons(startingIndex, numberOfPokemons);
   const main = document.querySelector('main');
+
+  // Delete Spinner
+  const spinner = main.querySelector('.spinner');
+  if (spinner) {
+    main.removeChild(spinner);
+  }
+
   let cardsContainer;
 
   if (document.querySelector('.cardsContainer')) {
@@ -144,6 +159,7 @@ const generateDescription = (text, parent) => {
   return description;
 };
 
+// Display About Page
 const addAboutSection = () => {
   const main = document.querySelector('main');
   const aboutSection = document.createElement('section');
@@ -216,4 +232,5 @@ export {
   addMenu,
   displaySeeMoreButton,
   addAboutSection,
+  displaySpinner,
 };

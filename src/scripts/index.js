@@ -7,8 +7,12 @@ import {
   addMenu,
   displaySeeMoreButton,
   addAboutSection,
+  displaySpinner,
 } from './modules/generators.js';
 import displayPopup from './modules/popup.js';
+
+displaySpinner();
+addMenu();
 
 window.onload = async () => {
   await displayPokemons(20);
@@ -16,7 +20,6 @@ window.onload = async () => {
   displaySeeMoreButton();
   displayPopup();
   displayCounters();
-  addMenu();
 };
 
 const nav = document.querySelector('.nav-child');
@@ -30,6 +33,7 @@ linkTags.forEach((tag) => {
     main.innerHTML = '';
     if (pageId === '#pokemons') {
       main.innerHTML = '<h1> Pick your Favorite Pokemon! </h1>';
+      displaySpinner();
       await displayPokemons(20);
       await displayLikes();
       displaySeeMoreButton();

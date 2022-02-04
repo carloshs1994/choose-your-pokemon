@@ -1,6 +1,8 @@
-const getPokemons = async () => {
+const getPokemons = async (startingIndex, numberOfPokemons) => {
   let pokemons = [];
-  for (let i = 1; i <= 20; i += 1) {
+  const finalIndex = (startingIndex + numberOfPokemons) >= 500 ? 500
+    : startingIndex + numberOfPokemons;
+  for (let i = startingIndex + 1; i <= finalIndex; i += 1) {
     const pokemon = fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`).then((response) => response.json());
     pokemons.push(pokemon);
   }

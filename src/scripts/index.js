@@ -18,7 +18,7 @@ window.onload = async () => {
   addMenu();
 };
 
-const nav = document.querySelector('.nav');
+const nav = document.querySelector('.nav-child');
 const main = document.querySelector('main');
 const linkTags = nav.querySelectorAll('a');
 

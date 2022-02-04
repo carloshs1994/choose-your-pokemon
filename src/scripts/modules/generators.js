@@ -19,6 +19,7 @@ const displayPokemons = async (numberOfPokemons) => {
   } else {
     cardsContainer = document.createElement('ul');
     cardsContainer.classList.add('cardsContainer');
+    cardsContainer.id = 'pokemons';
     main.appendChild(cardsContainer);
   }
 

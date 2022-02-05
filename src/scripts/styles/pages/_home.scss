@@ -58,6 +58,7 @@ main {
   align-items: center;
   gap: 1%;
   transition: 0.5s;
+  z-index: 3;
 
   &-close {
     position: absolute;
@@ -314,6 +315,8 @@ main {
   }
 
   @include desktop {
+    background-color: transparent;
+
     &-comments,
     &-add-comments {
       grid-column: span 1;
@@ -326,10 +329,51 @@ main {
       align-self: center;
     }
 
+    h2 {
+      font-weight: 700;
+    }
+
     &-info {
       grid-row: 2 / 4;
       width: 75%;
       height: 60%;
+    }
+
+    &-comments {
+      ul {
+        background-color: $white-custom;
+      }
+    }
+  }
+}
+
+.pokedex {
+  display: none;
+
+  @include desktop {
+    display: block;
+    
+    &-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(255, 255, 255, 0.459);
+      backdrop-filter: blur(5px);
+      z-index: 1;
+    }
+
+    &-container {
+      position: absolute;
+      top: 10%;
+      left: 3%;
+      right: 3%;
+      bottom: 27%;
+      background-color: red;
+      z-index: 2;
+      border: 7px solid $black-custom;
+      border-radius: 4px;
     }
   }
 }

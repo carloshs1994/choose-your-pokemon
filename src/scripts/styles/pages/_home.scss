@@ -396,9 +396,37 @@ main {
           bottom: 10%;
           background: radial-gradient($gray-light, $black-custom);
           border-radius: 50%;
+          border: 1px solid black;
           box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
           width: 65px;
           height: 65px;
+        }
+
+        .bar-button {
+          position: absolute;
+          left: 36%;
+          bottom: 5%;
+          width: 20%;
+          height: 5%;
+          background: radial-gradient($green-light, $green-medium);
+          border-radius: 10% / 50%;
+          box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+        }
+
+        .t-button,
+        .t-button-vertical {
+          position: absolute;
+          right: 10%;
+          bottom: 13%;
+          width: 20%;
+          height: 5%;
+          background-color: $black-custom;
+          border-radius: 10% / 50%;
+          box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
+        }
+
+        .t-button-vertical {
+          transform: rotate(90deg);
         }
       }
 
@@ -412,6 +440,7 @@ main {
         background-color: $gray-light;
         border: 4px solid black;
         border-radius: 7px;
+        box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
       }
     }
   }

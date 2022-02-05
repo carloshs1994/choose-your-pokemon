@@ -315,6 +315,7 @@ main {
   }
 
   @include desktop {
+    transition: 0s;
     background-color: transparent;
 
     &-comments,
@@ -350,9 +351,7 @@ main {
 .pokedex {
   display: none;
 
-  @include desktop {
-    display: block;
-    
+  @include desktop { 
     &-background {
       position: absolute;
       top: 0;

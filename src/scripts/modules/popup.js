@@ -28,6 +28,7 @@ export default () => {
   const xImg = document.createElement('img');
   const form = document.querySelector('form');
   const newForm = form.cloneNode(true);
+  const pokedex = document.querySelector('.pokedex');
   form.parentNode.replaceChild(newForm, form);
   let pokemonId = '';
   close.innerHTML = '';
@@ -35,6 +36,9 @@ export default () => {
   close.appendChild(xImg);
   buttons.forEach((button) => {
     button.addEventListener('click', async (event) => {
+      if (window.outerWidth > 950) {
+        pokedex.style.display = 'block';
+      }
       const { id } = event.target;
       pokemonId = event.target.parentElement.id;
       getPokemonInfo(id).then((json) => {
@@ -85,6 +89,7 @@ export default () => {
           pokemonImgContainer.innerHTML = '';
           document.querySelector('.popup-comments > h3').innerText = '';
           document.querySelector('.popup-comments > ul').innerHTML = '';
+          pokedex.style.display = 'none';
         });
       });
       await updateComments(pokemonId);

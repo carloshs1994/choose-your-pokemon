@@ -379,6 +379,19 @@ main {
       border: 7px solid $black-custom;
       border-radius: 4px;
 
+      &-top {
+        position: absolute;
+        top: -7px;
+        left: -7px;
+        right: -7px;
+        bottom: 88%;
+        border: 7px solid $black-custom;
+        border-radius: 4px;
+        box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+        background-color: rgb(185, 0, 0);
+        z-index: 3;
+      }
+
       &-first-half {
         position: absolute;
         top: -15%;

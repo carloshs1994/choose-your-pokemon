@@ -321,6 +321,10 @@ main {
     &-comments,
     &-add-comments {
       grid-column: span 1;
+
+      h3 {
+        font-weight: 700;
+      }
     }
 
     &-img {
@@ -332,6 +336,7 @@ main {
 
     h2 {
       font-weight: 700;
+      justify-self: center;
     }
 
     &-info {
@@ -369,10 +374,45 @@ main {
       left: 3%;
       right: 3%;
       bottom: 27%;
-      background-color: red;
+      background-color: rgb(185, 0, 0);
       z-index: 2;
       border: 7px solid $black-custom;
       border-radius: 4px;
+
+      &-first-half {
+        position: absolute;
+        top: -15%;
+        left: -7px;
+        right: 51%;
+        bottom: -7px;
+        border: 7px solid $black-custom;
+        border-radius: 4px;
+        background-color: rgb(185, 0, 0);
+        z-index: 2;
+
+        .circular-button {
+          position: absolute;
+          left: 10%;
+          bottom: 10%;
+          background: radial-gradient($gray-light, $black-custom);
+          border-radius: 50%;
+          box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+          width: 65px;
+          height: 65px;
+        }
+      }
+
+      &-second-half {
+        position: absolute;
+        top: 10%;
+        left: 56%;
+        right: 2%;
+        bottom: 21%;
+        z-index: 2;
+        background-color: $gray-light;
+        border: 4px solid black;
+        border-radius: 7px;
+      }
     }
   }
 }

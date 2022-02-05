@@ -152,7 +152,7 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5px;
-    
+
     & li {
       width: 98%;
       font-size: 1.3rem;
@@ -165,7 +165,6 @@ main {
         grid-column: span 2;
       }
     }
-
   }
 
   &-add-comments {
@@ -269,7 +268,7 @@ main {
       h3 {
         font-size: 3rem;
       }
-      
+
       ul {
         height: 300px;
       }
@@ -356,7 +355,7 @@ main {
 .pokedex {
   display: none;
 
-  @include desktop { 
+  @include desktop {
     &-background {
       position: absolute;
       top: 0;
@@ -387,7 +386,7 @@ main {
         bottom: 88%;
         border: 7px solid $black-custom;
         border-radius: 4px;
-        box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+        box-shadow: rgba(0, 0, 0, 0.45) 0 25px 20px -20px;
         background-color: rgb(185, 0, 0);
         z-index: 3;
       }
@@ -410,7 +409,7 @@ main {
           background: radial-gradient($gray-light, $black-custom);
           border-radius: 50%;
           border: 1px solid black;
-          box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+          box-shadow: rgba(0, 0, 0, 0.45) 0 25px 20px -20px;
           width: 65px;
           height: 65px;
         }
@@ -423,7 +422,7 @@ main {
           height: 5%;
           background: radial-gradient($green-light, $green-medium);
           border-radius: 10% / 50%;
-          box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+          box-shadow: rgba(0, 0, 0, 0.45) 0 25px 20px -20px;
         }
 
         .t-button,
@@ -435,7 +434,7 @@ main {
           height: 5%;
           background-color: $black-custom;
           border-radius: 10% / 50%;
-          box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
+          box-shadow: rgba(0, 0, 0, 0.2) 0 60px 40px -7px;
         }
 
         .t-button-vertical {
@@ -453,7 +452,7 @@ main {
         background-color: $gray-light;
         border: 4px solid black;
         border-radius: 7px;
-        box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+        box-shadow: rgba(0, 0, 0, 0.45) 0 25px 20px -20px;
       }
     }
   }

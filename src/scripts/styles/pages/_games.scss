@@ -1,0 +1,69 @@
+.game {
+  display: grid;
+  justify-content: center;
+  width: 100vw;
+  height: 100%;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: auto auto repeat(4, 1fr);
+  gap: 4vw;
+
+  h2 {
+    grid-column: span 4;
+    text-align: center;
+  }
+
+  &-info {
+    display: flex;
+    justify-content: space-evenly;
+    grid-column: span 4;
+    
+    &-time,
+    &-flips {
+      font-size: 1.5rem;
+    }
+  }
+
+  &-card {
+    position: relative;
+    background-color: black;
+    height: 90%;
+    width: 20vw;
+    border-radius: 25% 10%;
+    perspective: 300%;
+    
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &:hover &-front-logo {
+      transform: scale(1.15);
+      transform: rotateY(180deg);
+    }
+    
+    &-front,
+    &-back {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      transition: 0.3s;
+      backface-visibility: hidden;
+    }
+    
+    &-front {
+      &-logo {
+        width: 60%;
+        height: 60%;
+      }
+    }
+    
+    &-back {
+      &-pokemon {
+        width: 60%;
+        height: 60%;
+      }
+    }
+  }
+}

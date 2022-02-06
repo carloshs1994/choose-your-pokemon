@@ -89,10 +89,11 @@ main {
   align-items: center;
   gap: 1%;
   transition: 0.5s;
+  z-index: 3;
 
   &-close {
     position: absolute;
-    top: 2%;
+    top: 1%;
     right: 2%;
     height: 10vw;
     width: 10vw;
@@ -106,9 +107,14 @@ main {
       cursor: pointer;
     }
 
-    @media (min-width: 768px) {
-      height: 77px;
-      width: 77px;
+    @include tablet {
+      width: 40px;
+      height: 40px;
+    }
+
+    @include desktop {
+      width: 50px;
+      height: 50px;
     }
   }
 
@@ -143,7 +149,6 @@ main {
     height: auto;
     max-height: 20vh;
     width: 95vw;
-    max-width: 400px;
     display: flex;
     flex-direction: column;
 
@@ -174,34 +179,28 @@ main {
 
   &-info {
     width: 95vw;
-    max-width: 400px;
     height: 20vh;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
 
-    & > li {
-      width: 46vw;
-      max-width: 180px;
-      margin-bottom: 10px;
+    & li {
+      width: 98%;
       font-size: 1.3rem;
 
       &:nth-child(2n) {
         text-align: right;
       }
-    }
 
-    :last-child {
-      width: 100%;
-      max-width: 400px;
-      margin-bottom: 0;
+      &:last-child {
+        grid-column: span 2;
+      }
     }
   }
 
   &-add-comments {
     position: relative;
     width: 95vw;
-    max-width: 400px;
     height: 20vh;
     display: flex;
     flex-direction: column;
@@ -245,7 +244,7 @@ main {
     div {
       display: none;
       position: absolute;
-      bottom: 7px;
+      top: 2%;
       right: 0;
       background-color: $green-light;
       width: 100px;
@@ -255,6 +254,236 @@ main {
       p {
         text-align: center;
         font-size: 1.3rem;
+      }
+    }
+  }
+
+  @include tablet {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 8% 35% 1fr 1fr;
+    justify-items: center;
+
+    &-img {
+      grid-row: 1 / 3;
+      width: calc(100vw - 470px);
+      height: 80%;
+      align-self: flex-end;
+    }
+
+    h2 {
+      font-size: 3.5rem;
+      justify-self: start;
+      align-self: flex-end;
+    }
+
+    &-info {
+      width: 95%;
+      height: 100%;
+
+      li {
+        font-size: 2rem;
+      }
+    }
+
+    &-comments,
+    &-add-comments {
+      grid-column: span 2;
+    }
+
+    &-comments {
+      width: 90%;
+      height: 100%;
+      gap: 20px;
+
+      h3 {
+        font-size: 3rem;
+      }
+
+      ul {
+        height: 300px;
+      }
+    }
+
+    &-add-comments {
+      width: 96%;
+      height: auto;
+      gap: 20px;
+
+      h3 {
+        font-size: 3rem;
+        text-align: center;
+      }
+
+      form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+
+        input {
+          width: 90%;
+          height: 40px;
+          font-size: 2rem;
+          padding: 5px;
+        }
+
+        textarea {
+          grid-column: span 2;
+          height: 100px;
+          font-size: 2rem;
+          padding: 5px;
+        }
+
+        button {
+          grid-row: 1 / 2;
+          grid-column: 2 / 3;
+          width: 100%;
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+
+  @include desktop {
+    transition: 0s;
+    background-color: transparent;
+
+    &-comments,
+    &-add-comments {
+      grid-column: span 1;
+
+      h3 {
+        font-weight: 700;
+      }
+    }
+
+    &-img {
+      grid-row: 1 / 4;
+      width: 300px;
+      height: 300px;
+      align-self: center;
+    }
+
+    h2 {
+      font-weight: 700;
+      justify-self: center;
+    }
+
+    &-info {
+      grid-row: 2 / 4;
+      width: 75%;
+      height: 60%;
+    }
+
+    &-comments {
+      ul {
+        background-color: $white-custom;
+      }
+    }
+  }
+}
+
+.pokedex {
+  display: none;
+
+  @include desktop {
+    &-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(255, 255, 255, 0.459);
+      backdrop-filter: blur(5px);
+      z-index: 1;
+    }
+
+    &-container {
+      position: absolute;
+      top: 10%;
+      left: 3%;
+      right: 3%;
+      bottom: 27%;
+      background-color: rgb(185, 0, 0);
+      z-index: 2;
+      border: 7px solid $black-custom;
+      border-radius: 4px;
+
+      &-top {
+        position: absolute;
+        top: -7px;
+        left: -7px;
+        right: -7px;
+        bottom: 88%;
+        border: 7px solid $black-custom;
+        border-radius: 4px;
+        box-shadow: rgba(0, 0, 0, 0.45) 0 25px 20px -20px;
+        background-color: rgb(185, 0, 0);
+        z-index: 3;
+      }
+
+      &-first-half {
+        position: absolute;
+        top: -15%;
+        left: -7px;
+        right: 51%;
+        bottom: -7px;
+        border: 7px solid $black-custom;
+        border-radius: 4px;
+        background-color: rgb(185, 0, 0);
+        z-index: 2;
+
+        .circular-button {
+          position: absolute;
+          left: 10%;
+          bottom: 10%;
+          background: radial-gradient($gray-light, $black-custom);
+          border-radius: 50%;
+          border: 1px solid black;
+          box-shadow: rgba(0, 0, 0, 0.45) 0 25px 20px -20px;
+          width: 65px;
+          height: 65px;
+        }
+
+        .bar-button {
+          position: absolute;
+          left: 36%;
+          bottom: 5%;
+          width: 20%;
+          height: 5%;
+          background: radial-gradient($green-light, $green-medium);
+          border-radius: 10% / 50%;
+          box-shadow: rgba(0, 0, 0, 0.45) 0 25px 20px -20px;
+        }
+
+        .t-button,
+        .t-button-vertical {
+          position: absolute;
+          right: 10%;
+          bottom: 13%;
+          width: 20%;
+          height: 5%;
+          background-color: $black-custom;
+          border-radius: 10% / 50%;
+          box-shadow: rgba(0, 0, 0, 0.2) 0 60px 40px -7px;
+        }
+
+        .t-button-vertical {
+          transform: rotate(90deg);
+        }
+      }
+
+      &-second-half {
+        position: absolute;
+        top: 10%;
+        left: 56%;
+        right: 2%;
+        bottom: 21%;
+        z-index: 2;
+        background-color: $gray-light;
+        border: 4px solid black;
+        border-radius: 7px;
+        box-shadow: rgba(0, 0, 0, 0.45) 0 25px 20px -20px;
       }
     }
   }

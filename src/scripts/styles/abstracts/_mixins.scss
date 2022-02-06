@@ -1,3 +1,11 @@
 @mixin for-small-devices {
   @media screen and (max-width: 750px) { @content; }
 }
+
+@mixin tablet {
+  @media (min-width: 751px) { @content; }
+}
+
+@mixin desktop {
+  @media (min-width: 951px) { @content; }
+}

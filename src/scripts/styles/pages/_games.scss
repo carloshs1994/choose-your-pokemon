@@ -2,16 +2,16 @@
   display: grid;
   justify-content: center;
   width: 100vw;
-  height: 100%;
+  height: 95%;
   grid-template-columns: repeat(4, auto);
   grid-template-rows: auto auto repeat(4, 1fr);
   gap: 4vw;
-
+  
   h2 {
     grid-column: span 4;
     text-align: center;
   }
-
+  
   &-info {
     display: flex;
     justify-content: space-evenly;
@@ -22,22 +22,24 @@
       font-size: 1.5rem;
     }
   }
-
+  
   &-card {
-    position: relative;
-    background-color: black;
+    background-color: transparent;
     height: 90%;
-    width: 20vw;
-    border-radius: 25% 10%;
-    perspective: 300%;
+    width: 18vw;
+    // border-radius: 25% 10%;
+    perspective: 300px;
     
-    &:hover {
-      transform: scale(1.05);
+    &-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s;
+      transform-style: preserve-3d;
     }
 
-    &:hover &-front-logo {
-      transform: scale(1.15);
-      transform: rotateY(180deg);
+    &:hover &-wrapper {
+      transform: rotateY(180deg); 
     }
     
     &-front,
@@ -48,18 +50,24 @@
       align-items: center;
       width: 100%;
       height: 100%;
-      transition: 0.3s;
       backface-visibility: hidden;
     }
     
-    &-front {
+    &-back {
+      background-color: blue;
+      border-color: #FF6D00;
+
       &-logo {
         width: 60%;
         height: 60%;
       }
     }
     
-    &-back {
+    &-front {
+      background-color: #FFBB89;
+      border-color: #333;
+      transform: rotateY(180deg);
+      
       &-pokemon {
         width: 60%;
         height: 60%;

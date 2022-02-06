@@ -38,9 +38,10 @@ export default (arr) => {
     const pokemon = document.createElement('img');
     const front = document.createElement('div');
     const back = document.createElement('div');
-    logo.className = 'game-card-front-logo';
+    const cardWrapper = document.createElement('div');
+    logo.className = 'game-card-back-logo';
     logo.src = PokeLogo;
-    pokemon.className = 'game-card-back-pokemon';
+    pokemon.className = 'game-card-front-pokemon';
     if (index > 7) {
       pokemon.src = arr[index - 8].sprites.other.dream_world.front_default;
     } else {
@@ -48,9 +49,11 @@ export default (arr) => {
     }
     front.className = 'game-card-front';
     back.className = 'game-card-back';
-    front.appendChild(logo);
-    back.appendChild(pokemon);
-    card.appendChild(front);
-    card.appendChild(back);
+    front.appendChild(pokemon);
+    back.appendChild(logo);
+    cardWrapper.className = 'game-card-wrapper';
+    cardWrapper.appendChild(front);
+    cardWrapper.appendChild(back);
+    card.appendChild(cardWrapper);
   });
 };

@@ -27,7 +27,6 @@
     background-color: transparent;
     height: 90%;
     width: 18vw;
-    // border-radius: 25% 10%;
     perspective: 300px;
     
     &-wrapper {
@@ -38,8 +37,16 @@
       transform-style: preserve-3d;
     }
 
-    &:hover &-wrapper {
+    &.matched &-front &-front-pokemon {
+      animation: dance 1s linear infinite 500ms;
+    }
+    
+    &.active &-wrapper {
       transform: rotateY(180deg); 
+    }
+
+    &:hover &-back-logo {
+      transform: scale(1.15);
     }
     
     &-front,
@@ -50,22 +57,22 @@
       align-items: center;
       width: 100%;
       height: 100%;
+      border-radius: 25% 10%;
       backface-visibility: hidden;
     }
     
     &-back {
-      background-color: blue;
-      border-color: #FF6D00;
+      background: radial-gradient($gray-light, $black-custom);
 
       &-logo {
         width: 60%;
         height: 60%;
+        transition: 0.3s;
       }
     }
     
     &-front {
-      background-color: #FFBB89;
-      border-color: #333;
+      background: radial-gradient($white-custom, $orange-light);
       transform: rotateY(180deg);
       
       &-pokemon {
@@ -73,5 +80,17 @@
         height: 60%;
       }
     }
+  }
+}
+
+@keyframes dance {
+  0%, 100% {
+    transform: rotate(0)
+  }
+  25% {
+    transform: rotate(-30deg)
+  }
+  75% {
+    transform: rotate(30deg)
   }
 }

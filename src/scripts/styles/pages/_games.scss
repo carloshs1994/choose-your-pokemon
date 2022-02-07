@@ -6,29 +6,29 @@
   grid-template-columns: repeat(4, auto);
   grid-template-rows: auto auto repeat(4, 1fr);
   gap: 4vw;
-  
+
   h2 {
     grid-column: span 4;
     text-align: center;
   }
-  
+
   &-info {
     display: flex;
     justify-content: space-evenly;
     grid-column: span 4;
-    
+
     &-time,
     &-flips {
       font-size: 1.5rem;
     }
   }
-  
+
   &-card {
     background-color: transparent;
     height: 90%;
     width: 18vw;
     perspective: 300px;
-    
+
     &-wrapper {
       position: relative;
       width: 100%;
@@ -37,18 +37,10 @@
       transform-style: preserve-3d;
     }
 
-    &.matched &-front &-front-pokemon {
-      animation: dance 1s linear infinite 500ms;
-    }
-    
     &.visible &-wrapper {
-      transform: rotateY(180deg); 
+      transform: rotateY(180deg);
     }
 
-    &:hover &-back-logo {
-      transform: scale(1.15);
-    }
-    
     &-front,
     &-back {
       position: absolute;
@@ -60,7 +52,7 @@
       border-radius: 25% 10%;
       backface-visibility: hidden;
     }
-    
+
     &-back {
       background: radial-gradient($gray-light, $black-custom);
 
@@ -70,15 +62,23 @@
         transition: 0.3s;
       }
     }
-    
+
     &-front {
       background: radial-gradient($white-custom, $orange-light);
       transform: rotateY(180deg);
-      
+
       &-pokemon {
         width: 60%;
         height: 60%;
       }
+    }
+
+    &.matched &-front &-front-pokemon {
+      animation: dance 1s linear infinite 500ms;
+    }
+
+    &:hover &-back-logo {
+      transform: scale(1.15);
     }
   }
 }
@@ -108,13 +108,16 @@
 }
 
 @keyframes dance {
-  0%, 100% {
-    transform: rotate(0)
+  0%,
+  100% {
+    transform: rotate(0);
   }
+
   25% {
-    transform: rotate(-25deg)
+    transform: rotate(-25deg);
   }
+
   75% {
-    transform: rotate(25deg)
+    transform: rotate(25deg);
   }
 }

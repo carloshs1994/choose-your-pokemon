@@ -81,6 +81,19 @@
       transform: scale(1.15);
     }
   }
+
+  @include desktop {
+    width: 950px;
+    height: calc(100% - 10px);
+    margin-left: auto;
+    margin-right: auto;
+    gap: 10px;
+
+    &-card {
+      width: 100px;
+      height: 100%;
+    }
+  }
 }
 
 .overlay-text {

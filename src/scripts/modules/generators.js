@@ -16,6 +16,12 @@ const displaySpinner = () => {
   main.appendChild(pokeLogo);
 };
 
+// Array for the game
+const getArrayForGame = async () => {
+  const arrOfPokemons = await getPokemons(0, 12);
+  return arrOfPokemons;
+};// Array for the game
+
 const displayPokemons = async (numberOfPokemons) => {
   // Array of pokemons
   const startingIndex = itemsCounter();
@@ -233,4 +239,5 @@ export {
   displaySeeMoreButton,
   addAboutSection,
   displaySpinner,
+  getArrayForGame,
 };

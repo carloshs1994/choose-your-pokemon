@@ -1,4 +1,3 @@
-// Include your code here
 import './styles/main.scss';
 import {
   displayPokemons,
@@ -8,8 +7,10 @@ import {
   displaySeeMoreButton,
   addAboutSection,
   displaySpinner,
+  getArrayForGame,
 } from './modules/generators.js';
 import displayPopup from './modules/popup.js';
+import displayGames from './modules/games.js';
 
 displaySpinner();
 addMenu();
@@ -41,6 +42,8 @@ linkTags.forEach((tag) => {
       displayCounters();
     } else if (pageId === '#about') {
       addAboutSection();
+    } else if (pageId === '#games') {
+      displayGames(await getArrayForGame());
     }
     const navChild = document.querySelector('.nav-child');
     navChild.setAttribute('data-active', 'false');

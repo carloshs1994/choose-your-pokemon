@@ -8,7 +8,7 @@ const shuffleCards = (cardsArray) => { // Fisher-Yates Shuffle Algorithm.
   }
 };
 
-const getCardType = (card) => card.children[0].children[0].children[0].src;
+const getCardType = (card) => card.querySelector('.game-card-front-pokemon').src;
 
 class PokemonGame {
   constructor(totalTime, cards) {

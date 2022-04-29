@@ -4,7 +4,11 @@
 
 > "Choose your Pokemon" is a Webpack project meant to fetch data from two different APIs: [PokéAPI](https://pokeapi.co/) and Involvement API. Here we display a list of 20 Pokemons for whom one can like, display more info, and comment; all based on the data from these two external resources.  
 
-![Preview](./preview.gif))
+## Desktop Preview
+![Preview](./desktop_preview.gif)
+
+## Mobile Preview
+![Preview](./mobile_preview.gif)
 
 Got to code them all! The ultimate fan database is now available. Go through the list of Pokemons, pick the best ones (including evolution), comment, like, and see which one is the best among the community of Trainers!
 

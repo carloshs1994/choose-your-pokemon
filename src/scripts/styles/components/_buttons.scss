@@ -22,10 +22,10 @@
 
 button {
   font-size: 2rem;
-  border: 2px solid black;
+  border: 2px solid $primary-color;
   padding: 10px 20px;
-  background-color: $black-custom;
-  color: $white-custom;
+  background-color: $primary-darker-color;
+  color: $accent-color;
   box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
   transition: 0.3s;
 
@@ -34,8 +34,8 @@ button {
   }
 
   &:hover {
-    background-color: $green-light;
-    color: $black-custom;
+    background-color: $primary-lighter-color;
+    color: $primary-color;
     cursor: pointer;
   }
 }

@@ -48,10 +48,14 @@ main {
   flex-direction: column;
   align-items: center;
   gap: 30px;
-  border: 5px solid $gray-dark;
+  border: 5px solid $primary-color;
   padding: 20px;
-  box-shadow: 10px 10px 5px 5px $red-dark;
+  box-shadow: 10px 10px 5px 5px $primary-darker-color;
   transition: transform 0.2s ease-in;
+
+  img {
+    background-color: $accent-color;
+  }
 
   h2 {
     text-transform: capitalize;
@@ -69,7 +73,7 @@ main {
 }
 
 .pokemon {
-  border: 3px solid $gray-dark;
+  border: 5px solid $primary-color;
   border-radius: 5%;
   width: 100%;
   height: 300px;
@@ -82,7 +86,7 @@ main {
   left: 0;
   height: 100vh;
   width: 100vw;
-  background-color: $blue-light-transparent;
+  background-color: $accent-darker-color;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -124,15 +128,15 @@ main {
     border: 2px solid black;
     border-radius: 5%;
     padding: 10px;
-    background-color: $black-custom;
-    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0 inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    background-color: $dark-background;
+    box-shadow: $primary-color 3px 3px 6px 0 inset, $primary-color -3px -3px 6px 1px inset;
     transition: 0.2s;
 
     &:hover {
       box-shadow: rgb(38, 57, 77) 0 20px 30px -10px;
       transform: scale(1.02);
       background-color: black;
-      border: 2px solid $white-custom;
+      border: 2px solid $accent-color;
     }
 
     img {
@@ -141,8 +145,10 @@ main {
     }
   }
 
-  h2 {
+  h2,
+  h3 {
     text-transform: capitalize;
+    color: $dark-primary-text;
   }
 
   &-comments {
@@ -166,7 +172,7 @@ main {
       height: 75px;
       width: 100%;
       overflow-y: auto;
-      border: 2px dashed $black-custom;
+      border: 2px dashed $primary-color;
       padding-left: 1%;
       padding-top: 1%;
     }
@@ -214,14 +220,14 @@ main {
 
       input,
       textarea {
-        background-color: $black-custom;
-        border-color: black;
-        color: $white-custom;
+        background-color: $dark-background;
+        border-color: $accent-color;
+        color: $light-primary-text;
         padding: 3px;
         box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
 
         &::placeholder {
-          color: $white-custom;
+          color: $light-primary-text;
           font-weight: 400;
         }
       }
@@ -246,7 +252,7 @@ main {
       position: absolute;
       top: 2%;
       right: 0;
-      background-color: $green-light;
+      background-color: $primary-color;
       width: 100px;
       border-radius: 5%;
       padding: 3px;
@@ -377,7 +383,8 @@ main {
 
     &-comments {
       ul {
-        background-color: $white-custom;
+        background-color: $dark-background;
+        color: $light-primary-text;
       }
     }
   }
@@ -404,9 +411,9 @@ main {
       left: 3%;
       right: 3%;
       bottom: 27%;
-      background-color: rgb(185, 0, 0);
+      background-color: $red-medium;
       z-index: 2;
-      border: 7px solid $black-custom;
+      border: 7px solid $dark-background;
       border-radius: 4px;
 
       &-top {
@@ -415,10 +422,10 @@ main {
         left: -7px;
         right: -7px;
         bottom: 88%;
-        border: 7px solid $black-custom;
+        border: 7px solid $dark-background;
         border-radius: 4px;
         box-shadow: rgba(0, 0, 0, 0.45) 0 25px 20px -20px;
-        background-color: rgb(185, 0, 0);
+        background-color: $red-medium;
         z-index: 3;
       }
 
@@ -428,9 +435,9 @@ main {
         left: -7px;
         right: 51%;
         bottom: -7px;
-        border: 7px solid $black-custom;
+        border: 7px solid $dark-background;
         border-radius: 4px;
-        background-color: rgb(185, 0, 0);
+        background-color: $accent-color;
         z-index: 2;
 
         .circular-button {
@@ -451,7 +458,7 @@ main {
           bottom: 5%;
           width: 20%;
           height: 5%;
-          background: radial-gradient($green-light, $green-medium);
+          background: radial-gradient($primary-lighter-color, $primary-darker-color);
           border-radius: 10% / 50%;
           box-shadow: rgba(0, 0, 0, 0.45) 0 25px 20px -20px;
         }
@@ -480,7 +487,7 @@ main {
         right: 2%;
         bottom: 21%;
         z-index: 2;
-        background-color: $gray-light;
+        background-color: $accent-darker-color;
         border: 4px solid black;
         border-radius: 7px;
         box-shadow: rgba(0, 0, 0, 0.45) 0 25px 20px -20px;

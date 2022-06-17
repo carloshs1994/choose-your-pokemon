@@ -1,11 +1,30 @@
 $gray-dark: rgb(59, 59, 59);
-$red-dark: rgb(105, 29, 29);
 $red-medium: rgb(119, 11, 11);
 $red-light: rgb(255, 88, 88);
 $gray-light: rgb(116, 116, 116);
-$green-light: rgb(127, 255, 0);
-$blue-light-transparent: rgba(36, 220, 253, 0.95);
 $black-custom: rgb(51, 51, 51);
-$orange-light: rgb(215, 168, 132);
-$white-custom: rgb(238, 238, 238);
-$green-medium: rgb(88, 173, 2);
+
+// Dark Theme text
+$light-text: #fff;
+$light-primary-text: $light-text;
+$light-accent-text: rgba($light-primary-text, 0.7);
+$light-disabled-text: rgba($light-primary-text, 0.5);
+$light-dividers: rgba($light-primary-text, 0.12);
+$light-focused: rgba($light-primary-text, 0.12);
+$dark-background: #2c2c2c;
+
+// Light Theme Text
+$dark-text: #000;
+$dark-primary-text: rgba($dark-text, 0.87);
+$dark-accent-text: rgba($dark-primary-text, 0.54);
+$dark-disabled-text: rgba($dark-primary-text, 0.38);
+$dark-dividers: rgba($dark-primary-text, 0.12);
+$dark-focused: rgba($dark-primary-text, 0.12);
+
+$primary-color: #562891;
+$primary-lighter-color: #ccbfde;
+$primary-darker-color: #3c1874;
+
+$accent-color: #d2d2d2;
+$accent-lighter-color: #f2f2f2;
+$accent-darker-color: #c1c1c1;
